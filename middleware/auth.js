@@ -9,7 +9,8 @@ exports.adminCheck = asyncHandler(async (req, res, next) => {
     }
     next();
   } catch (err) {
-    return next(new ErrorResponse("Not authorize to access this route", 400));
+    next(err);
+    // return next(new ErrorResponse("Not authorize to access this route", 400));
   }
 });
 
@@ -31,7 +32,8 @@ exports.authenticateToken = asyncHandler(async (req, res, next) => {
       next();
     });
   } catch (err) {
-    return next(new ErrorResponse("Not authorize to access this route", 400));
+    next(err);
+    // return next(new ErrorResponse("Not authorize to access this route", 400));
   }
 });
 
