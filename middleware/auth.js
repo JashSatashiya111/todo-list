@@ -34,3 +34,17 @@ exports.authenticateToken = asyncHandler(async (req, res, next) => {
     return next(new ErrorResponse("Not authorize to access this route", 400));
   }
 });
+
+exports.auth = (...roles) => {
+  return (req, res, next) => {
+    if (!roles.includes(req.urole)) {
+      return next(
+        new ErrorResponse(
+          `User role ${req.urole} is not authorized to access this route`,
+          403
+        )
+      );
+    }
+    next();
+  };
+};
