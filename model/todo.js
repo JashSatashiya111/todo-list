@@ -11,6 +11,6 @@ const TodoSchema = mongoose.Schema(
     versionKey: false
   },
 );
-
+TodoSchema.index({title : 1},{"background" : true})
 
 module.exports = new mongoose.model("Todo", TodoSchema);
