@@ -43,4 +43,23 @@ const UseSchema = mongoose.Schema(
 //   return token;
 // };
 
+// UseSchema.post('save', async function (next) {
+//   let product = await getModel(Product).findOne({ _id: this.product });
+//   if (product) {
+//     const productVariations = await getModel(productVariationSchema).find({
+//       product: product._id,
+//     });
+//     if (productVariations.length > 0) {
+//       product.quantity = 0;
+//       for (const prod of productVariations) {
+//         product.quantity += prod.quantity;
+//         if (prod.default) {
+//           product.selling_price = prod.price;
+//         }
+//       }
+//     }
+//     await product.save();
+//   }
+// });
+
 module.exports = new mongoose.model("User", UseSchema);
