@@ -43,3 +43,6 @@ app.get("/", (req, res) => {
 app.listen(port, (req, res) => {
   console.log("Server Running on " + port);
 });
+
+// const response = pm.response.json();
+// pm.environment.set("token", response.data.token);
